@@ -10,13 +10,6 @@
     -->
     
     <title>Example-SMART-App</title>
-    <script>
-      const url = new URL(window.location);
-      const contextVars = url.searchParams;
-      for (const [key, value] of contextVars.entries()) {
-        console.log(`${key}, ${value}`);
-      }
-    </script>
   </head>
   <body>
     <!-- Required JS files to enable this page to embed within an MPage -->
@@ -33,6 +26,12 @@
     <!-- https://github.com/cerner/fhir-client-cerner-additions -->
     <script src='./lib/js/fhir-client-cerner-additions-1.0.0.js'></script>
     <script>
+      const url = new URL(window.location);
+      const contextVars = url.searchParams;
+      for (const [key, value] of contextVars.entries()) {
+        console.log(`${key}, ${value}`);
+      }
+
       FHIR.oauth2.authorize({
         'client_id': '806229a5-06d5-4a05-96c5-4d5dbdce3a52',
         'scope':  'user/Practitioner.read user/Patient.read user/Observation.read launch online_access profile'
